@@ -1,0 +1,96 @@
+body {
+  margin: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f3f3f3;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+nav {
+  border-bottom: 1px solid #999;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+}
+
+a.active {
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav a + a {
+  margin-left: 10px;
+}
+
+.cal-button {
+  background: #ddd;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin: 2px;
+  outline: none;
+  text-align: center;
+  width: 50px;
+}
+
+.cal-button:hover {
+  background: #aaa;
+}
+
+.cal-memory {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 20px;
+  text-align: right;
+  padding: 10px 5px;
+  overflow: auto;
+  height: 50px;
+  margin: 2px;
+  box-sizing: border-box;
+}
+
+.cal-grid {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.cal-grid-col {
+  text-align: center;
+}
+
+.product-page {
+  display: flex;
+  flex-flow: row;
+  max-width: 800px;
+  text-align: center;
+  text-align: left;
+}
+
+.product-page ul {
+  list-style: none;
+}
+
+.product-page aside {
+  margin-left: 20px;
+  border-left: 1px solid #ddd;
+  padding-left: 20px;
+}
