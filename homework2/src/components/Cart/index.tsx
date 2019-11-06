@@ -4,6 +4,9 @@ import { IPizza } from '../../interfaces/iPizza'
 import { withData } from '../../components/utils/withDataWrapper'
 import { PizzaCard } from '../PizzasList/PizzaCard';
 
+import './cart.css'
+
+/* worrk around for children */
 export function Cart({
     removeFromCart,
     cart,
@@ -16,20 +19,20 @@ export function Cart({
         <h2>
           Cart <small>({cart.length})</small>
         </h2>
-        <ul>
-          {cart.map(pizza => (
-            <li key={pizza.id}>
-              <PizzaCard pizza={pizza}>
-                <button onClick={() => removeFromCart(pizza)}>-</button>
+
+        <ul className="container">
+          { cart.map(pizza => (
+              <PizzaCard pizza={pizza} key={pizza.id}>
+                <span></span>
+                <a className="remove-from-cart" onClick={() => removeFromCart(pizza)}>【 pass 】</a>
               </PizzaCard>
-            </li>
-          ))}
+          )) }
         </ul>
       </aside>
     );
   }
 
 export const CartWithData = withData(dataSources => ({
-    cart: dataSources.storeDatasource.getCart(), 
-    removeFromCart: dataSources.storeDatasource.removeFromCart
+    cart: dataSources.cartDataSource.getCart(), 
+    removeFromCart: dataSources.cartDataSource.removeFromCart
 }))(Cart);

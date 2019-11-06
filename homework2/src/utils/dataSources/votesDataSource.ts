@@ -1,60 +1,47 @@
-import EventEmitter from 'eventemitter3';
-
-import { IPizza } from '../../interfaces/iPizza'
-
 import {IDataSource, DataSourceClass} from './basicDataSource'
+import StoreDataSourceClass, { IStoreDataSource } from './storeDataSource'
 
-/* export interface IDataSource {
-    addChangeListener(fn: any): any;
-    removeChangeListener(fn: any): void;
-  }
-  
-  class DataSourceClass implements IDataSource {
-    _emitter = new EventEmitter();
-  
-    // event emitters
-    emit() {
-      this._emitter.emit('change');
-    }
-  
-    addChangeListener(fn: any) {
-      this._emitter.on('change', fn);
-  
-      return () => this.removeChangeListener(fn);
-    }
-  
-    removeChangeListener(fn: any) {
-      this._emitter.off('change', fn);
-    }
-  }
-  
-  export interface IStoreDataSource extends IDataSource {
-    getPizza(id: number): IPizza | undefined;
-    getAllPizzas(): IPizza[];
-    addToCart(pizza: IPizza): void;
-    removeFromCart(pizza: IPizza): void;
-    getCart(): IPizza[];
-  }
- */
 export interface IVoteDataSource extends IDataSource {
-    vote(id:number): boolean;
+    vote(id: number): boolean;
+    hasVoted(id: number): boolean;
+    getMyVotes(): Set<number>;
 }
+
+const userId: number = 1;
 
 export class VoteDataSourceClass extends DataSourceClass implements IVoteDataSource {
   _myVotes: Set<number> = new Set<number>();
 
-  vote(id :number) {
+  constructor(private _storeDataSource: IStoreDataSource) {
+    super();
+  } 
 
-    let hasAlreadyVoted : boolean = this._myVotes.has(id);
+  vote = (id : number) => {
 
-    if(!hasAlreadyVoted){
-        this._myVotes.add(id);
+    let hasAlreadyVoted: boolean = this.hasVoted(id);
+
+    if(hasAlreadyVoted){
+      this._myVotes.delete(id);
+      this._storeDataSource.getPizza(id)!.votes--;
+    } else {
+      this._myVotes.add(id);
+      this._storeDataSource.getPizza(id)!.votes++;
     }
 
-    alert(hasAlreadyVoted);
+    hasAlreadyVoted = !hasAlreadyVoted;
+
+    this.emit();
 
     return hasAlreadyVoted;
   }
+
+  hasVoted = (id : number) => {
+    return this._myVotes.has(id);
+  }
+
+  getMyVotes = () => {
+    return this._myVotes;
+  }
 }
 
-export default new VoteDataSourceClass();
+export default new VoteDataSourceClass(StoreDataSourceClass);

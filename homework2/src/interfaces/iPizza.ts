@@ -2,7 +2,7 @@
     id: number;
     name: string;
     description: string;
-    pizzas: string[],
+    ingredients: string[],
     price: number,
     votes: number,
     count: number

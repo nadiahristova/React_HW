@@ -1,0 +1,11 @@
+aside > h2 {
+    margin: 15px;
+    text-align: center;
+}
+
+.remove-from-cart {
+    color: #FF8000 !important;
+    margin-right: -25px !important;
+    font-weight: bold;
+    cursor: pointer;
+}
