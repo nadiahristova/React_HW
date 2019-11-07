@@ -1,6 +1,7 @@
-aside > h2 {
+aside > h2:not(small) {
     margin: 15px;
     text-align: center;
+    text-decoration: underline;
 }
 
 .remove-from-cart {

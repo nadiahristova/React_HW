@@ -1,12 +1,7 @@
 import { IPizza } from '../../interfaces/iPizza'
-import { IDataSource, DataSourceClass } from './basicDataSource'
-  
-export interface IStoreDataSource extends IDataSource {
-  getPizza(id: number): IPizza | undefined;
-  removePizza(id: number): boolean;
-  addPizza(pizza: IPizza): void;
-  getAllPizzas(): IPizza[];
-}
+import { DataSourceClass } from './basicDataSource'
+
+import { IStoreDataSource } from '../../interfaces/IStoreDataSource'
 
 export class StoreDataSourceClass extends DataSourceClass implements IStoreDataSource {
   _pizzas: IPizza[] = [];

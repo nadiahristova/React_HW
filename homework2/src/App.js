@@ -9,10 +9,11 @@ import {
 import './App.css';
 
 import * as pages from './pages';
+
 function Home() {
   return (
-    <h1>
-      <span role="img" aria-label="hi">
+    <h1 style={{textAlign: "center"}}>
+      <span>
         Homework Lesson 2
       </span>
     </h1>

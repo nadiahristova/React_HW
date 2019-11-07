@@ -1,32 +1,30 @@
 import React from 'react';
 
-import StoreDataSourceClass, { IStoreDataSource } from '../../utils/dataSources/storeDataSource';
-import VoteDataSourceClass, { IVoteDataSource } from '../../utils/dataSources/votesDataSource';
-import CartDataSourceClass, { ICartDataSource } from '../../utils/dataSources/cartDataSource';
+import { IDataSource } from '../../interfaces/IDataSource'
+import { IDataSourceList } from '../../interfaces/IDataSourceList'
+import { DataSources } from '../../utils/dataSources/dataSources'
 
-export function withData(selectData: (data: { storeDataSource: IStoreDataSource, cartDataSource: ICartDataSource, voteDataSource: IVoteDataSource }, props: any) => any) {
+export function withData(selectData: (data: IDataSourceList, props: any) => any) {
     return (WrappedComponent: any) =>
       class extends React.Component {
         constructor(props: any) {
           super(props);
   
-          this.state = selectData({ storeDataSource: StoreDataSourceClass, cartDataSource: CartDataSourceClass, voteDataSource: VoteDataSourceClass }, props);
+          this.state = selectData(DataSources, props);
         }
   
         componentDidMount() {
-          StoreDataSourceClass.addChangeListener(this.handleChange);
-          CartDataSourceClass.addChangeListener(this.handleChange);
-          VoteDataSourceClass.addChangeListener(this.handleChange);
+
+          Object.values(DataSources).map(ds => { (ds as IDataSource).addChangeListener(this.handleChange) })
         }
 
         componentWillUnmount() {
-          StoreDataSourceClass.removeChangeListener(this.handleChange);
-          CartDataSourceClass.removeChangeListener(this.handleChange);
-          VoteDataSourceClass.removeChangeListener(this.handleChange);
+          
+          Object.values(DataSources).map(ds => { (ds as IDataSource).removeChangeListener(this.handleChange) })
         }
   
         handleChange = () => {
-          this.setState(selectData({ storeDataSource: StoreDataSourceClass, cartDataSource: CartDataSourceClass, voteDataSource: VoteDataSourceClass }, this.props));
+          this.setState(selectData(DataSources, this.props));
         };
   
         render() {

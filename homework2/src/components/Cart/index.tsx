@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 import { IPizza } from '../../interfaces/iPizza'
 import { withData } from '../../components/utils/withDataWrapper'
-import { PizzaCard } from '../PizzasList/PizzaCard';
+import { MemoizedPizzaCard } from '../shared/PizzaCard/pizzaCard_smart';
 
 import './cart.css'
 
@@ -22,10 +22,10 @@ export function Cart({
 
         <ul className="container">
           { cart.map(pizza => (
-              <PizzaCard pizza={pizza} key={pizza.id}>
+              <MemoizedPizzaCard pizza={pizza} key={pizza.id}>
                 <span></span>
                 <a className="remove-from-cart" onClick={() => removeFromCart(pizza)}>【 pass 】</a>
-              </PizzaCard>
+              </MemoizedPizzaCard>
           )) }
         </ul>
       </aside>

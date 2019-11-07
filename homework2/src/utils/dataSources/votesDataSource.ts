@@ -1,13 +1,8 @@
-import {IDataSource, DataSourceClass} from './basicDataSource'
-import StoreDataSourceClass, { IStoreDataSource } from './storeDataSource'
+import { DataSourceClass} from './basicDataSource'
+import StoreDataSourceClass from './storeDataSource'
+import { IVoteDataSource } from '../../interfaces/IVoteDataSource'
+import { IStoreDataSource } from '../../interfaces/IStoreDataSource';
 
-export interface IVoteDataSource extends IDataSource {
-    vote(id: number): boolean;
-    hasVoted(id: number): boolean;
-    getMyVotes(): Set<number>;
-}
-
-const userId: number = 1;
 
 export class VoteDataSourceClass extends DataSourceClass implements IVoteDataSource {
   _myVotes: Set<number> = new Set<number>();
