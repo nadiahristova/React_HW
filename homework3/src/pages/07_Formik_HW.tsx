@@ -75,7 +75,7 @@ export default function Page() {
                           {form.values.pizzas.map(
                             (_value: any, index: number) => (
                               <div className="form-row" key={index}>
-                                <div className="form-group mr-1">
+                                <div className="form-group mr-2">
                                   <div>
                                     {index + 1}
                                   </div>
@@ -131,8 +131,12 @@ export default function Page() {
                               </div>
                             ),
                           )} 
-                          <div className="form-group d-block">
-                            <Field value={`$ ${calculateBill(form.values)}`} className="form-control bill-cell" />
+
+                          <div className="form-inline">
+                            <div className="form-group col-md-12">
+                              <label className="col-sm-1 col-form-label" htmlFor="bill">Total:</label>
+                              <Field name="bill" value={`$ ${calculateBill(form.values)}`} className="form-control bill-cell" />
+                            </div>
                           </div>
 
                         </React.Fragment>

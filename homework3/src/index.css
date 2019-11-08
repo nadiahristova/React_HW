@@ -94,3 +94,16 @@ nav a + a {
   border-left: 1px solid #ddd;
   padding-left: 20px;
 }
+
+.form-row > div > * {
+  height: 40px;
+  vertical-align: 50%;
+}
+
+.bill-cell {
+  border: none;
+}
+
+.add-pizza-btn {
+  margin-left: 10px;
+}
