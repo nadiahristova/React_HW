@@ -1,0 +1,12 @@
+aside > h2:not(small) {
+    margin: 15px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.remove-from-cart {
+    color: #FF8000 !important;
+    margin-right: -25px !important;
+    font-weight: bold;
+    cursor: pointer;
+}
