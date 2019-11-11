@@ -1,0 +1,8 @@
+form > div { 
+    border: none !important;
+}
+
+form .card { 
+    height: 100%;
+    border: none !important;
+}

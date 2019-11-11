@@ -1,0 +1,138 @@
+h2, h4, h5 {
+    margin: 15px;
+    text-align: center;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.fade-out { 
+    opacity: 0.7;
+}
+
+.fadeOut{
+    opacity:0;
+    width:0 !important;
+    height:0 !important;
+    transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+    border: none;
+}
+
+.fadeOut *{
+    opacity:0;
+    transition: opacity 0.5s;
+}
+
+.fadeIn{
+    opacity:1;
+    transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.vote-btn {
+    background-color: rgba(245, 245, 245, 0.25);
+    color: whitesmoke;
+    border-top: 2px solid whitesmoke;
+    font-weight: 800;
+    margin: 0 !important;
+    height: 60px;
+}
+
+.vote-arrow {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.pizza-card { 
+    height: 200px;
+}
+
+.img-fake-row {
+    height: 130px;
+}
+
+ul > li  button {
+    border: none;
+}
+
+.hor-center {
+    margin:auto;
+}
+
+.vote-btn {
+    display: block;
+    text-shadow: -1px -1px 0 rgba(96, 96, 96, 0.1), 1px -1px 0 rgba(96, 96, 96, 0.1), -1px 1px 0 rgba(96, 96, 96, 0.1), 1px 1px 0 rgba(96, 96, 96, 0.1);
+}
+
+.pizza-image {
+    background-color: teal;
+    height: 200px;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.hide-btn {
+    width: auto;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.pizza-title {
+    padding-left: 0 !important;
+    font-weight: bolder;
+    font-size: 28px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pizza-info {
+    position: relative;
+    padding: 0 0 0 25px !important;
+    background: rgba(130, 190, 196, 0.1);
+}
+
+.pizza-info div {
+    border: none;
+}
+
+.add-to-card-btn {
+    color: #004A7F !important;
+    margin-right: -25px !important;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pizza-description {
+    font-size: 18px;
+    color: #282828;
+}
+
+.pizza-ingrediants {
+    position: absolute;
+    bottom: 0;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.filter-btns:hover { 
+    cursor: pointer;
+}
+
+.pizza-price {
+    font-size: 35px;
+    color: #002540;
+    margin-right: 50px;
+}
+
+.price {
+    font-family: 'Slabo 27px', serif;
+}
